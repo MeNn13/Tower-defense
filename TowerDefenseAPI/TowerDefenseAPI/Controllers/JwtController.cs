@@ -12,7 +12,7 @@ namespace TowerDefenseAPI.Controllers
         ApplicationDbContext context;
         public JwtController(ApplicationDbContext _context) => context = _context;
 
-        [HttpPost("/token")]
+        [HttpPost("SignIn")]
         public IActionResult Token(string login, string password)
         {
             var identity = GetIdentity(login, password);
@@ -40,23 +40,28 @@ namespace TowerDefenseAPI.Controllers
 
         private ClaimsIdentity? GetIdentity(string login, string password)
         {
-            User user = context.Users.FirstOrDefault(x => x.Login == login && x.Password == password);
+            User user = context.Users.FirstOrDefault(x => x.Login == login);
 
             if (user != null)
             {
-                var claims = new List<Claim>
+                bool isValidPassword = BCrypt.Net.BCrypt.Verify(password, user.Password);
+
+                if (isValidPassword)
+                {
+                    var claims = new List<Claim>
                 {
                     new Claim(ClaimsIdentity.DefaultNameClaimType, user.Login),
                     new Claim(ClaimsIdentity.DefaultRoleClaimType, user.Role)
                 };
 
-                ClaimsIdentity claimsIdentity = new ClaimsIdentity(claims, "Token",
-                    ClaimsIdentity.DefaultNameClaimType,
-                    ClaimsIdentity.DefaultRoleClaimType);
+                    ClaimsIdentity claimsIdentity = new ClaimsIdentity(claims, "Token",
+                        ClaimsIdentity.DefaultNameClaimType,
+                        ClaimsIdentity.DefaultRoleClaimType);
 
-                return claimsIdentity;
+                    return claimsIdentity;
+                }
+                return null;
             }
-
             return null;
         }
     }

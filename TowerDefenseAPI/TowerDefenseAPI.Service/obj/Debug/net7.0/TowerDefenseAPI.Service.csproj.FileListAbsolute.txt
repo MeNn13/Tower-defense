@@ -1,0 +1,17 @@
+C:\Users\Menn\Tower defense\TowerDefenseAPI\TowerDefenseAPI.Service\bin\Debug\net7.0\TowerDefenseAPI.Service.deps.json
+C:\Users\Menn\Tower defense\TowerDefenseAPI\TowerDefenseAPI.Service\bin\Debug\net7.0\TowerDefenseAPI.Service.dll
+C:\Users\Menn\Tower defense\TowerDefenseAPI\TowerDefenseAPI.Service\bin\Debug\net7.0\TowerDefenseAPI.Service.pdb
+C:\Users\Menn\Tower defense\TowerDefenseAPI\TowerDefenseAPI.Service\bin\Debug\net7.0\TowerDefenseAPI.Data.dll
+C:\Users\Menn\Tower defense\TowerDefenseAPI\TowerDefenseAPI.Service\bin\Debug\net7.0\TowerDefenseAPI.Domain.dll
+C:\Users\Menn\Tower defense\TowerDefenseAPI\TowerDefenseAPI.Service\bin\Debug\net7.0\TowerDefenseAPI.Data.pdb
+C:\Users\Menn\Tower defense\TowerDefenseAPI\TowerDefenseAPI.Service\bin\Debug\net7.0\TowerDefenseAPI.Domain.pdb
+C:\Users\Menn\Tower defense\TowerDefenseAPI\TowerDefenseAPI.Service\obj\Debug\net7.0\TowerDefenseAPI.Service.csproj.AssemblyReference.cache
+C:\Users\Menn\Tower defense\TowerDefenseAPI\TowerDefenseAPI.Service\obj\Debug\net7.0\TowerDefenseAPI.Service.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Menn\Tower defense\TowerDefenseAPI\TowerDefenseAPI.Service\obj\Debug\net7.0\TowerDefenseAPI.Service.AssemblyInfoInputs.cache
+C:\Users\Menn\Tower defense\TowerDefenseAPI\TowerDefenseAPI.Service\obj\Debug\net7.0\TowerDefenseAPI.Service.AssemblyInfo.cs
+C:\Users\Menn\Tower defense\TowerDefenseAPI\TowerDefenseAPI.Service\obj\Debug\net7.0\TowerDefenseAPI.Service.csproj.CoreCompileInputs.cache
+C:\Users\Menn\Tower defense\TowerDefenseAPI\TowerDefenseAPI.Service\obj\Debug\net7.0\TowerDefenseAPI.Service.csproj.CopyComplete
+C:\Users\Menn\Tower defense\TowerDefenseAPI\TowerDefenseAPI.Service\obj\Debug\net7.0\TowerDefenseAPI.Service.dll
+C:\Users\Menn\Tower defense\TowerDefenseAPI\TowerDefenseAPI.Service\obj\Debug\net7.0\refint\TowerDefenseAPI.Service.dll
+C:\Users\Menn\Tower defense\TowerDefenseAPI\TowerDefenseAPI.Service\obj\Debug\net7.0\TowerDefenseAPI.Service.pdb
+C:\Users\Menn\Tower defense\TowerDefenseAPI\TowerDefenseAPI.Service\obj\Debug\net7.0\ref\TowerDefenseAPI.Service.dll
