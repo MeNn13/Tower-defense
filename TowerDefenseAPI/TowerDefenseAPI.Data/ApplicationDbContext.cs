@@ -19,18 +19,18 @@ namespace TowerDefenseAPI.Data
                 {
                     Id = Guid.NewGuid().ToString(),
                     Login = "Menn",
-                    Password = "1234",
-                    Role = "Player"
+                    Password = BCrypt.Net.BCrypt.HashPassword("1234"),
+                    Role = "Player",
+                    Score = 0,
                 },
                 new User
                 {
                     Id = Guid.NewGuid().ToString(),
                     Login = "Fille",
-                    Password = "4321",
-                    Role = "Admin"
+                    Password = BCrypt.Net.BCrypt.HashPassword("1234"),
+                    Role = "Admin",
+                    Score = 0,
                 });
-
-
         }
     }
 }

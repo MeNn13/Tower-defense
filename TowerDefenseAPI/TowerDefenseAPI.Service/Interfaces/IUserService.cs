@@ -5,6 +5,8 @@ namespace TowerDefenseAPI.Service.Interfaces
 {
     public interface IUserService
     {
+        Task<IBaseResponse<IEnumerable<UserViewModel>>> GetLeaderboard();
+
         Task<IBaseResponse<IEnumerable<User>>> GetAll();
 
         Task<IBaseResponse<User>> Get(string id);
@@ -14,5 +16,6 @@ namespace TowerDefenseAPI.Service.Interfaces
         Task<IBaseResponse<bool>> Delete(string id);
 
         Task<IBaseResponse<User>> Update(User entity);
+
     }
 }

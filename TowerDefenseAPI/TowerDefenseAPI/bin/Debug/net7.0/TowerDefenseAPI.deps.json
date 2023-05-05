@@ -759,6 +759,7 @@
       },
       "TowerDefenseAPI.Data/1.0.0": {
         "dependencies": {
+          "BCrypt.Net-Next": "4.0.3",
           "Microsoft.EntityFrameworkCore": "7.0.5",
           "TowerDefenseAPI.Domain": "1.0.0"
         },

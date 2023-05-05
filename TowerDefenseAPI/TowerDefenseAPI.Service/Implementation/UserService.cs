@@ -120,6 +120,42 @@ namespace TowerDefenseAPI.Service.Implementation
             }
         }
 
+        public async Task<IBaseResponse<IEnumerable<UserViewModel>>> GetLeaderboard()
+        {
+            List<UserViewModel> userViewModels = new List<UserViewModel>();
+            var baseResponse = new BaseResponse<IEnumerable<UserViewModel>>();
+
+            try
+            {
+                var users = await _userRepository.GetAll();
+
+                if (users.Count == 0)
+                {
+                    baseResponse.StatusCode = HttpStatusCode.NotFound;
+                    return baseResponse;
+                }
+
+                for (int i = 0; i < users.Count; i++)
+                {
+                    var userViewModel = new UserViewModel
+                    {
+                        Login = users[i].Login,
+                        Score = users[i].Score,
+                    };
+
+                    userViewModels.Add(userViewModel);
+                }
+                baseResponse.StatusCode = HttpStatusCode.OK;
+                baseResponse.Data = userViewModels;
+                return baseResponse;
+            }
+            catch
+            {
+                baseResponse.StatusCode = HttpStatusCode.InternalServerError;
+                return baseResponse;
+            }
+        }
+
         public async Task<IBaseResponse<User>> Update(User entity)
         {
             var baseResponse = new BaseResponse<User>();

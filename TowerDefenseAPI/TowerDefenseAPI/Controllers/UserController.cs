@@ -47,6 +47,14 @@ namespace TowerDefenseAPI.Controllers
         {
             var response = await _userService.Delete(id);
             return StatusCode(response.StatusCode);
-        }   
+        }
+
+        [HttpGet("leaderBoard")]
+        public async Task<IEnumerable<UserViewModel>> GetLeaderboard()
+        {
+            var response = await _userService.GetLeaderboard();
+            StatusCode(response.StatusCode);
+            return response.Data;
+        }
     }
 }
