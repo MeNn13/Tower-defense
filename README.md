@@ -1,4 +1,4 @@
 # Tower-defense
  
-Login : Menn
-Password : 1234
+Login : Menn;
+Password : 1234;
