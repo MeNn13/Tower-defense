@@ -56,5 +56,21 @@ namespace TowerDefenseAPI.Controllers
             StatusCode(response.StatusCode);
             return response.Data;
         }
+
+        [HttpPost("updateScore")]
+        public async Task<User> UpdateScore(string login, int score)
+        {
+            var response = await _userService.UpdateScore(login, score);
+            StatusCode(response.StatusCode);
+            return response.Data;
+        }
+
+        [HttpGet("getScore")]
+        public async Task<User> GetLogin(string login)
+        {
+            var response = await _userService.GetScore(login);
+            StatusCode(response.StatusCode);
+            return response.Data;
+        }
     }
 }

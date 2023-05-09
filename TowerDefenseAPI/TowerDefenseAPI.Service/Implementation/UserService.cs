@@ -28,6 +28,7 @@ namespace TowerDefenseAPI.Service.Implementation
                         Login = entity.Login,
                         Password = BCrypt.Net.BCrypt.HashPassword(entity.Password),
                         Role = entity.Role,
+                        Score = 0
                     };
 
                     await _userRepository.Create(user);
@@ -84,6 +85,7 @@ namespace TowerDefenseAPI.Service.Implementation
                     return baseResponse;
                 }
 
+                baseResponse.StatusCode= HttpStatusCode.OK;
                 baseResponse.Data = user;
                 return baseResponse;
             }
@@ -139,6 +141,7 @@ namespace TowerDefenseAPI.Service.Implementation
                 {
                     var userViewModel = new UserViewModel
                     {
+                        Id = users[i].Id,
                         Login = users[i].Login,
                         Score = users[i].Score,
                     };
@@ -150,6 +153,31 @@ namespace TowerDefenseAPI.Service.Implementation
                 return baseResponse;
             }
             catch
+            {
+                baseResponse.StatusCode = HttpStatusCode.InternalServerError;
+                return baseResponse;
+            }
+        }
+
+        public async Task<IBaseResponse<User>> GetScore(string login)
+        {
+            var baseResponse = new BaseResponse<User>();
+
+            try
+            {
+                var user = await _userRepository.GetLogin(login);
+
+                if (user == null)
+                {
+                    baseResponse.StatusCode = HttpStatusCode.NotFound;
+                    return baseResponse;
+                }
+
+                baseResponse.StatusCode = HttpStatusCode.OK;
+                baseResponse.Data = user;
+                return baseResponse;
+            }
+            catch 
             {
                 baseResponse.StatusCode = HttpStatusCode.InternalServerError;
                 return baseResponse;
@@ -177,6 +205,35 @@ namespace TowerDefenseAPI.Service.Implementation
                 await _userRepository.Update(user);
 
                 baseResponse.StatusCode = HttpStatusCode.OK;
+                return baseResponse;
+            }
+            catch
+            {
+                baseResponse.StatusCode = HttpStatusCode.InternalServerError;
+                return baseResponse;
+            }
+        }
+
+        public async Task<IBaseResponse<User>> UpdateScore(string login, int score)
+        {
+            var baseResponse = new BaseResponse<User>();
+
+            try
+            {
+                var user = await _userRepository.GetLogin(login);
+
+                if (user == null)
+                {
+                    baseResponse.StatusCode = HttpStatusCode.NotFound;
+                    return baseResponse;
+                }
+
+                user.Score = score;
+
+                await _userRepository.Update(user);
+
+                baseResponse.StatusCode = HttpStatusCode.OK;
+                baseResponse.Data = user;
                 return baseResponse;
             }
             catch

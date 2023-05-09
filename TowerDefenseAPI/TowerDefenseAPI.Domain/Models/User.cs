@@ -11,6 +11,7 @@
 
     public class UserViewModel
     {
+        public string Id { get; set; } = string.Empty;
         public string Login { get; set; } = string.Empty;
         public int Score { get; set; }
     }

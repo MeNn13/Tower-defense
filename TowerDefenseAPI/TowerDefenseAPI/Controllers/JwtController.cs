@@ -31,8 +31,8 @@ namespace TowerDefenseAPI.Controllers
 
             var response = new
             {
-                access_token = encodedJwt,
-                username = identity.Name
+                Token = encodedJwt,
+                Login    = identity.Name
             };
 
             return Ok(response);
