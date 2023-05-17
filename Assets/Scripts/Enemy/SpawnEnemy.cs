@@ -1,6 +1,4 @@
-using System;
 using System.Collections;
-using System.Text;
 using UnityEngine;
 using UnityEngine.Networking;
 
@@ -8,14 +6,15 @@ public class SpawnEnemy : MonoBehaviour
 {
     [Header("Reference")]
     [SerializeField] private Transform startPoint;
-    [SerializeField] private GameObject enemyPref;
+    [SerializeField] private GameObject[] enemyPref;
+    [SerializeField] private GameObject levelPassedUI;
 
     [Header("Settings")]
     [SerializeField] private float spawnRate = 1.0f;
     [SerializeField] private int amountWave = 1;
     
     private int score = 0;
-    private int amountEnemy = 5;
+    private int amountEnemy = 15;
 
     private void OnEnable()
     {
@@ -40,15 +39,17 @@ public class SpawnEnemy : MonoBehaviour
             for (int j = 0; j < amountEnemy; j++)
             {
                 yield return new WaitForSeconds(spawnRate);
-                Instantiate(enemyPref, startPoint.transform.position, Quaternion.identity);
+                Instantiate(enemyPref[i], startPoint.transform.position, Quaternion.identity);
             }
 
-            amountEnemy *= 2;
+            spawnRate += 0.5f;
             yield return new WaitForSeconds(3);
             StartCoroutine(SaveData());
             UserData.score = score;
         }
 
+        levelPassedUI.SetActive(true);
+        Time.timeScale = 0;
     }
 
     private IEnumerator SaveData()
@@ -69,8 +70,8 @@ public class SpawnEnemy : MonoBehaviour
         }
     }
 
-    private void ScoreUp()
+    private void ScoreUp(int cost)
     {
-        score++;
+        score += cost;
     }
 }

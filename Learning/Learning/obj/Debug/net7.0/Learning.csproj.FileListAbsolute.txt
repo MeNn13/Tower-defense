@@ -1,0 +1,15 @@
+C:\Users\Menn\Tower defense\Learning\Learning\bin\Debug\net7.0\Learning.exe
+C:\Users\Menn\Tower defense\Learning\Learning\bin\Debug\net7.0\Learning.deps.json
+C:\Users\Menn\Tower defense\Learning\Learning\bin\Debug\net7.0\Learning.runtimeconfig.json
+C:\Users\Menn\Tower defense\Learning\Learning\bin\Debug\net7.0\Learning.dll
+C:\Users\Menn\Tower defense\Learning\Learning\bin\Debug\net7.0\Learning.pdb
+C:\Users\Menn\Tower defense\Learning\Learning\obj\Debug\net7.0\Learning.csproj.AssemblyReference.cache
+C:\Users\Menn\Tower defense\Learning\Learning\obj\Debug\net7.0\Learning.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Menn\Tower defense\Learning\Learning\obj\Debug\net7.0\Learning.AssemblyInfoInputs.cache
+C:\Users\Menn\Tower defense\Learning\Learning\obj\Debug\net7.0\Learning.AssemblyInfo.cs
+C:\Users\Menn\Tower defense\Learning\Learning\obj\Debug\net7.0\Learning.csproj.CoreCompileInputs.cache
+C:\Users\Menn\Tower defense\Learning\Learning\obj\Debug\net7.0\Learning.dll
+C:\Users\Menn\Tower defense\Learning\Learning\obj\Debug\net7.0\refint\Learning.dll
+C:\Users\Menn\Tower defense\Learning\Learning\obj\Debug\net7.0\Learning.pdb
+C:\Users\Menn\Tower defense\Learning\Learning\obj\Debug\net7.0\Learning.genruntimeconfig.cache
+C:\Users\Menn\Tower defense\Learning\Learning\obj\Debug\net7.0\ref\Learning.dll

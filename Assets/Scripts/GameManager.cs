@@ -5,6 +5,11 @@ public class GameManager : MonoBehaviour
 {
     bool isPlaying = true;
 
+    private void Start()
+    {
+        Time.timeScale = 1.0f;
+    }
+
     public void PauseGame()
     {
         if (isPlaying)
@@ -23,6 +28,11 @@ public class GameManager : MonoBehaviour
     {
         SceneManager.LoadScene(level);
         Time.timeScale = 1.0f;
+    }
+
+    public void Restart()
+    {
+        PlayerPrefs.DeleteKey("Level");
     }
 
     public void Exit()

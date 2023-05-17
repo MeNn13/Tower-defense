@@ -3,21 +3,19 @@ using UnityEngine.UI;
 
 public class Tower : MonoBehaviour
 {
-    [Header("Attributes")]
-    [SerializeField] private float range = 15f;
-
     [Header("Unity Setup Field")]
+    [SerializeField] private TowerData towerData;
     [SerializeField] private Transform tower;
-    [SerializeField] private float turnSpeed = 10f;
     [SerializeField] private GameObject bulletPref;
     [SerializeField] private Transform spawnBullet;
+    [SerializeField] private AudioClip shootClip;
 
     [Header("UI")]
     [SerializeField] private GameObject upgradeUI;
     [SerializeField] private Button damageBtn;
     [SerializeField] private Button speedBtn;
 
-    [SerializeField] private float cooldown = 1f;
+    private float cooldown = 1f;
     public float Cooldown
     {
         get { return cooldown; }
@@ -28,11 +26,30 @@ public class Tower : MonoBehaviour
         }
     }
 
+    private float damageForce = 5f;
+    public float DamageForce
+    {
+        get { return damageForce; }
+        set
+        {
+            if (value > damageForce)
+                damageForce = value;
+        }
+    }
+
     private float fireCountDown = 0f;
     private Transform target;
+    private AudioSource audioSource;
+
+    private void Awake()
+    {
+        damageForce = towerData.Damage;
+        cooldown = towerData.Cooldown;
+    }
 
     private void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         InvokeRepeating("UpdateTarget", 0f, .5f);
     }
 
@@ -53,7 +70,7 @@ public class Tower : MonoBehaviour
             }
         }
 
-        if (nearestEnemy != null && shortestDistance <= range)
+        if (nearestEnemy != null && shortestDistance <= towerData.Range)
             target = nearestEnemy.transform;
         else
             target = null;
@@ -66,7 +83,7 @@ public class Tower : MonoBehaviour
 
         Vector3 dir = target.position - transform.position;
         Quaternion lookRotation = Quaternion.LookRotation(dir);
-        Vector3 rotation = Quaternion.Lerp(tower.rotation, lookRotation, Time.deltaTime * turnSpeed).eulerAngles;
+        Vector3 rotation = Quaternion.Lerp(tower.rotation, lookRotation, Time.deltaTime * towerData.TurnSpeed).eulerAngles;
         tower.rotation = Quaternion.Euler(0f, rotation.y, 0f);
 
         if (fireCountDown <= 0)
@@ -80,11 +97,12 @@ public class Tower : MonoBehaviour
 
     private void Shoot()
     {
+        audioSource.PlayOneShot(shootClip);
         GameObject bulletRef = Instantiate(bulletPref, spawnBullet.position, spawnBullet.rotation);
         Bullet bullet = bulletRef.GetComponent<Bullet>();
 
         if (bullet != null)
-            bullet.Seek(target);
+            bullet.Init(target, damageForce);
     }
 
     private void OnMouseDown()
@@ -102,6 +120,6 @@ public class Tower : MonoBehaviour
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, range);
+        Gizmos.DrawWireSphere(transform.position, towerData.Range);
     }
 }

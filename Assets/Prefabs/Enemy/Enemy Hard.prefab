@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2076601971035810862}
   - component: {fileID: 8880726808875837288}
   m_Layer: 0
-  m_Name: Enemy
+  m_Name: Enemy Hard
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -64,7 +64,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a18d9342f01eac940815428623649519, type: 2}
+  - {fileID: 2100000, guid: 4a01acae93888d6488e9064072be8691, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -112,9 +112,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87d8a42ec3b9c0841ba0fbea7d6c45e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  speed: 8
   currentHealth: 0
-  maxHealth: 25
+  maxHealth: 100
+  costEnemy: 3
   healthBar: {fileID: 3262498002233606744}
 --- !u!1 &3950526523447990754
 GameObject:
@@ -184,7 +185,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: a46cea50db16bce4089ac454c62e627e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 18d9e46436f0cad41b8a1022319905e3, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -387,7 +388,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: a46cea50db16bce4089ac454c62e627e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 18d9e46436f0cad41b8a1022319905e3, type: 3}
   m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1

@@ -13,7 +13,6 @@ public class UpgradeTower : MonoBehaviour
 
     [Header("Attributes")]
     [SerializeField] private Tower tower;
-    [SerializeField] private Bullet bullet;
 
     private byte maxLevel = 3;
     private int speedPrice = 15;
@@ -38,7 +37,7 @@ public class UpgradeTower : MonoBehaviour
             if (OnSpeedPrice.Invoke(speedPrice))
             {
                 speedLevel++;
-                tower.GetComponent<Tower>().Cooldown = tower.Cooldown * 2;
+                tower.Cooldown = tower.Cooldown * 2;
                 speedPrice *= speedLevel;
                 speedPriceText.text = $"Speed \n $ {speedPrice}";
             }
@@ -52,7 +51,7 @@ public class UpgradeTower : MonoBehaviour
             if (OnDamagePrice.Invoke(damagePrice))
             {
                 damageLevel++;
-                bullet.GetComponent<Bullet>().DamageForce = (float)Math.Round(bullet.DamageForce * 2, 1);
+                tower.DamageForce = (float)Math.Round(tower.DamageForce * 2, 1);
                 damagePrice *= damageLevel;
                 damagePriceText.text = $"Damage \n $ {damagePrice}";
             }

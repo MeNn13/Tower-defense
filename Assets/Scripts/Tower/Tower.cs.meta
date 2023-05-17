@@ -1,0 +1,19 @@
+fileFormatVersion: 2
+guid: e7dc246b85010cc4ea991d3a46c7b2ae
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - towerData: {instanceID: 0}
+  - tower: {instanceID: 0}
+  - bulletPref: {instanceID: 0}
+  - spawnBullet: {instanceID: 0}
+  - shootClip: {fileID: 8300000, guid: 0833dc52e64ae0e489c464dc7d63bbba, type: 3}
+  - upgradeUI: {instanceID: 0}
+  - damageBtn: {instanceID: 0}
+  - speedBtn: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

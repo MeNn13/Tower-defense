@@ -29,9 +29,9 @@ public class Money : MonoBehaviour
         moneyUI.text = $"$ {money}";
     }
 
-    private void AddMoney()
+    private void AddMoney(int cost)
     {
-        money++;
+        money += cost;
         moneyUI.text = $"$ {money}";
     }
 

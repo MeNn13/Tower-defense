@@ -1,26 +1,17 @@
-using System;
+using System.Xml.Serialization;
 using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
     [SerializeField] private float speed = 7f;
 
-    private float damageForce = 5f;
-    public float DamageForce
-    {
-        get { return damageForce; }
-        set
-        {
-            if (value > damageForce)
-                damageForce = value;
-        }
-    }
-
     private Transform target;
+    private float damage;
 
-    public void Seek(Transform _target)
+    public void Init(Transform _target, float _damage)
     {
         target = _target;
+        damage = _damage;
     }
 
     void Update()
@@ -45,7 +36,7 @@ public class Bullet : MonoBehaviour
 
     private void HitTarget()
     {
-        target.GetComponent<Enemy>().TakeDamage(damageForce);
+        target.GetComponent<Enemy>().TakeDamage(damage);
         Destroy(gameObject);
     }
 }

@@ -2,5 +2,5 @@ using System;
 
 public static class EventBus
 {
-    public static Action OnEnemyDead;
+    public static Action<int> OnEnemyDead;
 }

@@ -4,8 +4,20 @@ public class Enemy : MonoBehaviour
 {
     [Header("Attributes")]
     [SerializeField] private float speed = 5f;
+    public float Speed
+    {
+        get { return speed; }
+        set
+        {
+            if (value > 0 && value <= 10)
+                speed = value;
+        }
+    }
+
     [SerializeField] private float currentHealth;
     [SerializeField] private float maxHealth = 50f;
+
+    [SerializeField] private int costEnemy = 1;
 
     [Header("Unity Setup Field")]
     [SerializeField] HealthBar healthBar;
@@ -57,7 +69,7 @@ public class Enemy : MonoBehaviour
         if (currentHealth <= 0)
         {
             currentHealth = 0;
-            EventBus.OnEnemyDead?.Invoke();           
+            EventBus.OnEnemyDead?.Invoke(costEnemy);
             Destroy(gameObject);
         }
 
